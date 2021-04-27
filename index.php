@@ -3,14 +3,33 @@
 //var_dump($_SERVER);
 echo date('d/m/Y');
 echo '</br>';
-echo date('H:i:s');
+echo date('h:i:s');
+echo '</br>';
 echo time();
 $hour = getdate();
 var_dump($hour);
-$dateObject = new DateTime();
-var_dump($dateObject);
-date_default_timezone_set("Africa/Juba");
+date_default_timezone_set("Europe/Paris");
 echo date('d-m-Y h:i:s'); 
+
+$dateObject = new DateTime('Europe/Paris');
+var_dump($dateObject);
+
+echo date('d-m-Y h:i:s');
+
+
+$dateModifie = $dateObject->modify('+3 day');
+var_dump($dateModifie);
+$dateString = $dateModifie->date;
+echo $dateString;
+echo '</br>';
+//https://www.php.net/manual/fr/datetime.format.php
+$newDate = $dateModifie->format('l-d-F-Y');
+echo $newDate;
+$newDateTwo = $dateModifie->format('d-m-Y');
+echo '</br>';
+echo $newDateTwo;
+
+
 
 
 /*
